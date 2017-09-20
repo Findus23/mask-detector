@@ -7,12 +7,16 @@ function handleMessage(request, sender, sendResponse) {
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function () {
                     var found;
-                    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-                        found = true;
-                        chrome.browserAction.enable(tabId);
-                    } else {
-                        found = false;
-                        chrome.browserAction.disable(tabId);
+                    if (xmlHttp.readyState === 4) {
+                        if (xmlHttp.status === 200) {
+                            found = true;
+                            chrome.browserAction.enable(tabId);
+                        } else {
+                            found = false;
+                            chrome.browserAction.disable(tabId);
+                            chrome.browserAction.setBadgeText({text: "t3", tabId: tabId});
+                            chrome.browserAction.setBadgeBackgroundColor({color: "#FF8700", tabId: tabId});
+                        }
                     }
                     var data = {};
                     data[request.url] = {
@@ -27,9 +31,10 @@ function handleMessage(request, sender, sendResponse) {
             } else {
                 if (data.found) {
                     chrome.browserAction.enable(tabId);
-                    console.info("found");
                 } else {
                     chrome.browserAction.disable(tabId);
+                    chrome.browserAction.setBadgeText({text: "t3", tabId: tabId});
+                    chrome.browserAction.setBadgeBackgroundColor({color: "#FF8700", tabId: tabId});
                 }
             }
         });

@@ -4,7 +4,7 @@
   "short_name": "mask-detector",
   "version": "0.0.1",
   "author": "Lukas Winkler",
-  "description": "find sites using the mask Typo3 extension",
+  "description": "find websites using the mask Typo3 extension",
   "icons": {
     "128": "logo.128.png"
   },
