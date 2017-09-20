@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Mask Detector",
+  "short_name": "mask-detector",
+  "version": "0.0.1",
+  "author": "Lukas Winkler",
+  "description": "find sites using the mask Typo3 extension",
+  "icons": {
+    "128": "logo.128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "128": "logo.128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentscript.js"]
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "http://*/",
+    "https://*/",
+    "tabs"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}
