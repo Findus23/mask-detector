@@ -3,7 +3,7 @@ function handleMessage(request, sender, sendResponse) {
     if (request.typo3) {
         chrome.storage.local.get(request.url, function (result) {
             var data = result[request.url];
-            if (!data || Date.now() - data.updated > 1000 * 60) {
+            if (!data || Date.now() - data.updated > 1000 * 60 * 60 * 24) {
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function () {
                     var found;
@@ -15,7 +15,11 @@ function handleMessage(request, sender, sendResponse) {
                         chrome.browserAction.disable(tabId);
                     }
                     var data = {};
-                    data[request.url] = {found: found, modified: false, updated: Date.now()};
+                    data[request.url] = {
+                        found: found,
+                        modified: xmlHttp.getResponseHeader('Last-Modified'),
+                        updated: Date.now()
+                    };
                     chrome.storage.local.set(data);
                 };
                 xmlHttp.open("GET", request.url + "/typo3conf/ext/mask/ext_icon.gif", true);
