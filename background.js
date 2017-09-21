@@ -1,3 +1,32 @@
+function enabled(tabId) {
+    chrome.pageAction.show(tabId);
+    chrome.pageAction.setIcon({
+        tabId: tabId,
+        path: {
+            "128": "logo.128.png"
+        }
+    })
+}
+
+function disabled(tabId) {
+    chrome.pageAction.hide(tabId);
+    chrome.pageAction.setIcon({
+        tabId: tabId,
+        path: {
+            "128": "logo-disabled.128.png"
+        }
+    })
+}
+function typo3(tabId) {
+    chrome.pageAction.show(tabId);
+    chrome.pageAction.setIcon({
+        tabId: tabId,
+        path: {
+            "128": "logo-typo3.128.png"
+        }
+    })
+}
+
 function handleMessage(request, sender, sendResponse) {
     var tabId = sender.tab.id;
     if (request.typo3) {
@@ -10,12 +39,10 @@ function handleMessage(request, sender, sendResponse) {
                     if (xmlHttp.readyState === 4) {
                         if (xmlHttp.status === 200) {
                             found = true;
-                            chrome.browserAction.enable(tabId);
+                            enabled(tabId);
                         } else {
                             found = false;
-                            chrome.browserAction.disable(tabId);
-                            chrome.browserAction.setBadgeText({text: "t3", tabId: tabId});
-                            chrome.browserAction.setBadgeBackgroundColor({color: "#FF8700", tabId: tabId});
+                            typo3(tabId);
                         }
                     }
                     var data = {};
@@ -30,17 +57,15 @@ function handleMessage(request, sender, sendResponse) {
                 xmlHttp.send();
             } else {
                 if (data.found) {
-                    chrome.browserAction.enable(tabId);
+                    enabled(tabId);
                 } else {
-                    chrome.browserAction.disable(tabId);
-                    chrome.browserAction.setBadgeText({text: "t3", tabId: tabId});
-                    chrome.browserAction.setBadgeBackgroundColor({color: "#FF8700", tabId: tabId});
+                    typo3(tabId);
                 }
             }
         });
     }
     else {
-        chrome.browserAction.disable(tabId);
+        disabled(tabId);
     }
 }
 

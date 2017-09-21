@@ -8,9 +8,9 @@
   "icons": {
     "128": "logo.128.png"
   },
-  "browser_action": {
+  "page_action": {
     "default_icon": {
-      "128": "logo.128.png"
+      "128": "logo-disabled.128.png"
     },
     "default_popup": "popup.html"
   },
