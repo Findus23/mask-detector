@@ -20,7 +20,7 @@ function displayData(data, tabId, typo3) {
         path: {
             "128": "img/" + icon + ".128.png"
         }
-    })
+    });
 }
 
 function handleMessage(request, sender) {
@@ -50,7 +50,7 @@ function handleMessage(request, sender) {
                                     if (cl.readyState === 4) {
                                         if (cl.status === 200) {
                                             var changelog = cl.responseText.split('\n', 1)[0];
-                                            const regex = /(\d\.)+(\d+)/;
+                                            var regex = /(\d\.)+(\d+)/;
                                             var match = regex.exec(changelog);
                                             data.t3version = match[0];
                                         }
@@ -81,12 +81,12 @@ function handleMessage(request, sender) {
                 xmlHttp.send();
             }
             else {
-                displayData(data, tabId, true)
+                displayData(data, tabId, true);
             }
         });
     }
     else {
-        displayData(false, tabId, false)
+        displayData(false, tabId, false);
     }
 }
 

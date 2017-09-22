@@ -7,7 +7,7 @@ chrome.tabs.query({active: true}, function (tabs) {
             if (result[key].mask.modified) {
                 text = result[key].mask.modified;
             } else if (result[key].tv.modified) {
-                text = result[key].tv.modified
+                text = result[key].tv.modified;
             }
         }
         if (text) {
