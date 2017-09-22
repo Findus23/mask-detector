@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Mask Detector",
   "short_name": "mask-detector",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Lukas Winkler",
   "description": "find websites using the mask Typo3 extension",
   "icons": {
