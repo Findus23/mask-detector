@@ -1,7 +1,7 @@
 # Mask Detector
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/kkbhnlbbfpkdbipkjgagfagcbaacmfge.svg)](https://chrome.google.com/webstore/detail/piwik-injector/kkbhnlbbfpkdbipkjgagfagcbaacmfge)
-[![Chrome Web Store](https://img.shields.io/badge/chrome%20web%20store-download%20now-brightgreen.svg)](https://chrome.google.com/webstore/detail/piwik-injector/kkbhnlbbfpkdbipkjgagfagcbaacmfge)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/kkbhnlbbfpkdbipkjgagfagcbaacmfge.svg)](https://chrome.google.com/webstore/detail/mask-detector/kkbhnlbbfpkdbipkjgagfagcbaacmfge)
+[![Chrome Web Store](https://img.shields.io/badge/chrome%20web%20store-download%20now-brightgreen.svg)](https://chrome.google.com/webstore/detail/mask-detector/kkbhnlbbfpkdbipkjgagfagcbaacmfge)
 
 
 [![Mozilla Add-on](https://img.shields.io/amo/v/mask-detector.svg)](https://addons.mozilla.org/de/firefox/addon/mask-detector/)
