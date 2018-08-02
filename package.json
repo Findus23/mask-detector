@@ -1,0 +1,28 @@
+{
+  "name": "mask-detector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "npm-run-all": "^4.1.3",
+    "web-ext": "^2.3.0"
+  },
+  "scripts": {
+    "build": "web-ext build --ignore-files '**/*.sh' 'docs/' 'yarn*'",
+    "webext_lint": "web-ext lint --warnings-as-errors --ignore-files 'libs/*' 'docs/' '**/*.sh' 'yarn*'",
+    "eslint": "eslint *.js",
+    "all": "npm-run-all --parallel webext_lint eslint --sequential build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Findus23/mask-detector.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Findus23/mask-detector/issues"
+  },
+  "homepage": "https://github.com/Findus23/mask-detector#readme"
+}
