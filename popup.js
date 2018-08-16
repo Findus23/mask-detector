@@ -10,7 +10,7 @@ chrome.tabs.query({active: true}, function (tabs) {
                 text = result[key].tv.modified;
             }
         }
-        if (result[key].mask && result[key].mask.type) {
+        if (result[key].mask && result[key].mask.found) {
             document.getElementById("maskVersion").innerText = "Mask " +
                 ((result[key].mask.type === "old") ? "<= 3.2.0" : "> 3.2.0");
         }
